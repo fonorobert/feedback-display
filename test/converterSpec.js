@@ -1,9 +1,9 @@
 var expect = require("chai").expect;
-var convert = require("../lib/converter.js");
+var convert = require("../lib/convert.js");
 var fs = require("fs");
 
 describe("Converter", function(){
-  describe("#convert()", function(){
+  describe("#toArrayt()", function(){
     it("should return false if file is nonexistent", function(){
       var nonex = "test/nonexistent.csv";
 
