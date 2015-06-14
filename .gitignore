@@ -33,3 +33,7 @@ res
 
 config/*.json
 !config/default.json
+
+# Compiled css
+
+public/stylesheets/*.css

@@ -3,6 +3,5 @@
   "fieldNames": {
     "author": "author",
     "receiver": "receiver"
-  },
-  "nonQuestionFields": 2
+  }
 }
