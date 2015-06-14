@@ -1,3 +1,4 @@
+process.env['NODE_ENV'] = 'test';
 var expect = require("chai").expect;
 var arrange = require("../lib/arrange.js");
 var convert = require("../lib/convert.js");
@@ -24,8 +25,11 @@ describe("Arrange", function(){
       var object = convert.toObject(file, "feedbacks");
       var results = arrange.byAuthor(object);
 
-      expect(results[0].receiver).to.eql("Jill");
-      expect(results[1].receiver).to.eql("Joe");
+      var receivers = ["Jill", "Joe"];
+
+      var resultReceivers = [results[0].receiver, results[1].receiver];
+
+      expect(resultReceivers).to.have.members(receivers);
     })
     it("should return receiver as string, feedbacks as Array", function(){
       var file = "test/feedbacks.csv";
