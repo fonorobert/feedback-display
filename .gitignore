@@ -28,3 +28,8 @@ node_modules
 
 # Source files
 res
+
+# Config files except default.json
+
+config/*.json
+!config/default.json

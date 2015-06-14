@@ -19,6 +19,12 @@ describe("Converter", function(){
 
       expect(typeof convert.toArray(ex)).to.not.eql("string");
     });
+    it("shouldn't slice inside cells", function(){
+      var file = "test/feedbacks.csv";
+      var results = convert.toArray(file);
+
+      expect(results[1][2]).to.not.eql('Lorem ipsum dolor sit amet');
+    })
     it("should return a two-dimensional array if csv has multiple rows", function(){
       var file = "test/test.csv";
       var result = convert.toArray(file);
