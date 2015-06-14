@@ -29,7 +29,7 @@ describe("Converter", function(){
     it("should convert numbers to Number if possible", function(){
       var file = "test/test.csv";
       var result = convert.toArray(file);
-      expect(result).to.eql([["abcd", "efgh"], [1223, 14314], ["pejfpfij", "wenfpi wfpjpw wpjwf"]]);
+      expect([result[0], result[1], result[2]]).to.eql([["abcd", "efgh"], [1223, 14314], ["pejfpfij", "wenfpi wfpjpw wpjwf"]]);
     });
   });
 
@@ -40,17 +40,36 @@ describe("Converter", function(){
 
       expect(result).to.not.be.instanceof(Array);
     });
-    it("should return object that has elements named after row numbers", function(){
-      var file = "test/test.csv";
-      var result = convert.toObject(file);
-
-      expect(result).to.have.deep.property("0");
-    });
     it("should return object that has elements named after table headers", function(){
       var file = "test/test.csv";
       var result = convert.toObject(file);
 
-      expect(result['0']).to.eql({'abcd': 1223, 'efgh': 14314});
+      expect(result.data[0].attributes).to.have.ownProperty('abcd').and.have.ownProperty('efgh');
+    });
+    describe("JSON API compliance", function(){
+      it("should have data as root property which is a list", function(){
+        var file = "test/test.csv";
+        var result = convert.toObject(file, "feedback");
+
+        expect(result).to.have.ownProperty("data");
+        expect(result.data).to.be.instanceof(Array);
+      })
+      it("should have properties id and type that are strings", function(){
+        var file = "test/test.csv";
+        var result = convert.toObject(file, "feedback");
+
+        expect(result.data[0]).to.have.ownProperty("id");
+        expect(result.data[0]).to.have.ownProperty("type");
+        expect(typeof result.data[0].id).to.eql("string");
+        expect(typeof result.data[0].type).to.eql("string");
+      })
+      it("should have arguments property with all the data under it", function(){
+        var file = "test/test.csv";
+        var result = convert.toObject(file, "feedback");
+
+        expect(result.data[0]).to.have.ownProperty("attributes");
+        expect(result.data[0].attributes).to.have.ownProperty('abcd').and.have.ownProperty('efgh');
+      })
     })
   })
 });
