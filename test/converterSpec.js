@@ -4,11 +4,12 @@ var fs = require("fs");
 
 describe("Converter", function(){
   describe("#toArray()", function(){
-    it("should return false if file is nonexistent", function(){
-      var nonex = "test/nonexistent.csv";
+      it("should throw error if file is nonexistent", function(){
+        var file = "test/nonex.csv";
+        var err = new ReferenceError('File not found!');
 
-      expect(convert.toArray(nonex)).to.equal(false);
-    });
+        expect(function(){convert.toArray(file)}).to.throw(ReferenceError);
+      })
     it("shouldn't return false if file exists", function(){
       var ex = "test/test.csv";
 
@@ -40,6 +41,12 @@ describe("Converter", function(){
   });
 
   describe("#toObject()", function(){
+    it("should throw error if argument is not object", function(){
+      var file = "test/nonex.csv";
+      var err = new ReferenceError('File not found!');
+
+      expect(function(){convert.toObject(file)}).to.throw(ReferenceError);
+    })
     it("should not return an Array", function(){
       var file = "test/test.csv";
       var result = convert.toObject(file);

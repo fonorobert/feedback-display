@@ -1,0 +1,15 @@
+doctype
+html
+  head
+    title #{title} - UH feedbacks
+    link(rel='stylesheet', href='/stylesheets/style.css')
+  body
+    header
+      a.button.back(href='/') Home
+      h1 UH feedbacks
+    .container
+      .main-content
+        block content
+    footer
+      p
+        a(href="/api") Raw JSON

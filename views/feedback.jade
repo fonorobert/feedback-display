@@ -1,0 +1,17 @@
+extend layout
+block content
+    h2.receiver #{data.receiver}
+    - each author in data.feedbacks
+      - if (author.questions['Skills [Leadership]'])
+        h3.author #{author.author} says:
+        table.qanda
+          thead
+            tr
+              th Question
+              th Answer
+          tbody
+          - each answer, question in author.questions
+            - if (answer !== 0)
+              tr
+                td #{question}
+                td #{answer}

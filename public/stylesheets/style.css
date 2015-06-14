@@ -1,0 +1,231 @@
+/*
+ * Import nib
+ */
+/*
+ * Grab a custom font from Google
+ */
+@import url("http://fonts.googleapis.com/css?family=Quicksand");
+/*
+ * Nib provides a CSS reset
+ */
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-weight: inherit;
+  font-style: inherit;
+  font-family: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+body {
+  line-height: 1;
+  color: #000;
+  background: #fff;
+}
+ol,
+ul {
+  list-style: none;
+}
+table {
+  border-collapse: separate;
+  border-spacing: 0;
+  vertical-align: middle;
+}
+caption,
+th,
+td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+a img {
+  border: none;
+}
+/*
+ * Store the main color and
+ * background color as variables
+ */
+body {
+  font-family: 'Georgia';
+  background-color: #faf9f0;
+  color: #444;
+}
+header {
+  font-family: 'Quicksand';
+  padding: 20px 10px;
+  color: #fff;
+  font-size: 26px;
+  text-align: center;
+/*
+   * Note the use of the `main-color`
+   * variable and the `darken` function
+   */
+  background-color: #fa5b4d;
+  border-bottom: 1px solid #df1806;
+  text-shadow: 0px -1px 0px #df1806;
+}
+header .button {
+  color: #fa5b4d;
+  background-color: #fff;
+  position: absolute;
+  float: left;
+  font-size: 15px;
+  left: 50px;
+  margin-top: -13px;
+}
+.container {
+  width: 500px;
+  margin: 50px auto;
+  overflow: hidden;
+}
+.main-content {
+  float: left;
+  width: 500px;
+}
+.main-content p {
+  margin-bottom: 20px;
+}
+p {
+  line-height: 1.8;
+}
+footer {
+  width: 500px;
+  margin: 50px auto;
+  border-top: 1px dotted #ccc;
+  padding-top: 5px;
+  font-size: 13px;
+}
+.columns {
+  -webkit-column-count: 3;
+  -moz-column-count: 3;
+  column-count: 3;
+  -webkit-column-gap: 20px;
+  -moz-column-gap: 20px;
+  column-gap: 20px;
+}
+#uhlist li {
+  margin-bottom: 1.6em;
+}
+#uhlist li a {
+  font-size: 1.2em;
+  color: #7f0e04;
+}
+.button {
+  display: inline-block;
+  padding: 15px;
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+  background-color: #fa5b4d;
+  border-bottom: 1px solid #df1806;
+  text-shadow: 0px -1px 0px #df1806;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+}
+h2,
+h3 {
+  text-align: center;
+  font-weight: bold;
+}
+h2 {
+  font-size: 3em;
+}
+h3 {
+  font-size: 2em;
+}
+h4 {
+  font-size: 1.4em;
+}
+.author {
+  margin-top: 1em;
+/* Border styles */
+}
+table thead,
+table tr {
+  border-top-width: 1px;
+  border-top-style: solid;
+  border-top-color: #e6bdbd;
+}
+table {
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: #e6bdbd;
+  margin-top: 20px;
+  margin-bottom: 2px;
+}
+/* Padding and font style */
+table td,
+table th {
+  padding: 5px 10px;
+  font-size: 12px;
+  font-family: Verdana;
+  color: #b16a68;
+}
+/* Alternating background colors */
+table tr:nth-child(even) {
+  background: #eed3d2;
+}
+table tr:nth-child(odd) {
+  background: #fff;
+}
+thead th {
+  font-weight: bold;
+}

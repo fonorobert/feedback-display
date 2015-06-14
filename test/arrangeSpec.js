@@ -35,6 +35,13 @@ describe("Arrange", function(){
       expect(typeof results[0].receiver).to.eql("string");
       expect(results[0].feedbacks).to.be.an('array');
     })
+    it("should have a key 'id' on each receiver", function(){
+      var file = "test/feedbacks.csv";
+      var object = convert.toObject(file, "feedbacks");
+      var results = arrange.byAuthor(object);
+
+      expect(results[0]).to.have.ownProperty("id");
+    })
     it("should have a key in feedbacks for all authors", function(){
       var file = "test/feedbacks.csv";
       var object = convert.toObject(file, "feedbacks");
