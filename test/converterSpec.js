@@ -50,32 +50,8 @@ describe("Converter", function(){
       var file = "test/test.csv";
       var result = convert.toObject(file);
 
-      expect(result.data[0].attributes).to.have.ownProperty('abcd').and.have.ownProperty('efgh');
+      expect(result).to.have.ownProperty('data');
+      expect(result.data[0]).to.have.ownProperty('abcd').and.have.ownProperty('efgh');
     });
-    describe("JSON API compliance", function(){
-      it("should have data as root property which is a list", function(){
-        var file = "test/test.csv";
-        var result = convert.toObject(file, "feedback");
-
-        expect(result).to.have.ownProperty("data");
-        expect(result.data).to.be.instanceof(Array);
-      })
-      it("should have properties id and type that are strings", function(){
-        var file = "test/test.csv";
-        var result = convert.toObject(file, "feedback");
-
-        expect(result.data[0]).to.have.ownProperty("id");
-        expect(result.data[0]).to.have.ownProperty("type");
-        expect(typeof result.data[0].id).to.eql("string");
-        expect(typeof result.data[0].type).to.eql("string");
-      })
-      it("should have arguments property with all the data under it", function(){
-        var file = "test/test.csv";
-        var result = convert.toObject(file, "feedback");
-
-        expect(result.data[0]).to.have.ownProperty("attributes");
-        expect(result.data[0].attributes).to.have.ownProperty('abcd').and.have.ownProperty('efgh');
-      })
-    })
   })
 });

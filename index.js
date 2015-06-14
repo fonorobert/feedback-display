@@ -1,5 +1,7 @@
 var convert = require("./lib/convert.js");
+var arrange = require("./lib/arrange.js");
 
-var file = "res/uhfeedback.csv";
+var file = "test/feedbacks.csv";
 
-console.log(convert.toObject(file).data[0].attributes);
+var object = convert.toObject(file)
+console.log(arrange.byAuthor(object));
