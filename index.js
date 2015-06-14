@@ -3,6 +3,7 @@ var stylus = require('stylus');
 var nib = require('nib');
 var convert = require("./lib/convert.js");
 var arrange = require("./lib/arrange.js");
+var config = require("./lib/config.js");
 
 var file = "res/uhfeedback.csv";
 
@@ -46,4 +47,4 @@ app.get('/:uh', function (req, res) {
   { title : title, data: data}
   )
 });
-app.listen(3000);
+app.listen(config.port);
