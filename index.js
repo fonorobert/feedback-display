@@ -5,7 +5,7 @@ var convert = require("./lib/convert.js");
 var arrange = require("./lib/arrange.js");
 var config = require("./lib/config.js");
 
-var file = "res/uhfeedback.csv";
+var file = config.file;
 
 var object = arrange.byAuthor(convert.toObject(file));
 
