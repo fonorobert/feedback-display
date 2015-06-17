@@ -39,12 +39,19 @@ app.get('/api', function (req, res) {
   res.send(JSON.stringify(object));
 });
 
-app.get('/:uh', function (req, res) {
-  var data = object[req.params.uh];
-  var title = data.receiver
+app.get('/uh/:uh', function (req, res) {
+  this.data = object[req.params.uh];
+  this.title = this.data.receiver;
   console.log("Rendering feedbacks for " + title);
   res.render('feedback',
-  { title : title, data: data}
+  { title : this.title, data: this.data}
+  )
+});
+
+app.get('/singlepage', function (req, res) {
+  console.log("Rendering singlepage view");
+  res.render('singlepage',
+  { title : 'All feedbacks', data: object}
   )
 });
 app.listen(config.port);

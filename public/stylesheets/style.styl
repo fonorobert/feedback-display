@@ -40,15 +40,17 @@ header
   border-bottom 1px solid darken(main-color, 30%)
   text-shadow 0px -1px 0px darken(main-color, 30%)
 
-  .button
-    color main-color
-    background-color #fff
-
+  .nav
     position absolute
-    float left
-    font-size 15px
-    left 50px
-    margin-top -13px
+    left 20px
+    .button
+      color main-color
+      background-color #fff
+
+      margin-right 10px
+      float left
+      font-size 15px
+      margin-top -13px
 
 .container
   width 500px
@@ -142,3 +144,8 @@ table tr:nth-child(odd) {
 thead
   th
     font-weight bold
+
+@media screen and (max-width: 697px)
+  header
+    .nav
+      top 80px
