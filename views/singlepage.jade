@@ -1,17 +1,17 @@
 extend layout
 block content
-    - each receiver in data
-      h2.receiver #{receiver.receiver}
-      - each author in receiver.feedbacks
-        - if (author.questions['Skills [Leadership]'])
-          h3.author #{author.author} says:
+    - each record in data
+      h2.receiver #{record.levelOne}
+      - each levelTwo in record.data
+        - if (levelTwo.questions['Skills [Leadership]'])
+          h3.author #{levelTwo.levelTwo} says:
           table.qanda
             thead
               tr
                 th Question
                 th Answer
             tbody
-            - each answer, question in author.questions
+            - each answer, question in levelTwo.questions
               - if (answer !== 0)
                 tr
                   td #{question}

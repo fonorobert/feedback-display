@@ -2,6 +2,6 @@ extend layout
 block content
   .columns
     ul#uhlist
-      - each receiver, index in data
+      - each record, index in data
         li
-          a(href='/uh/#{index}') #{receiver.receiver}
+          a(href='/uh/#{index}') #{record.levelOne}

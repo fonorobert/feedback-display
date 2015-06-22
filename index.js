@@ -7,7 +7,7 @@ var config = require("./lib/config.js");
 
 var file = config.file;
 
-var object = arrange.byAuthor(convert.toObject(file));
+var object = arrange.twoLevel(convert.toObject(file));
 
 var app = express();
 
@@ -41,7 +41,7 @@ app.get('/api', function (req, res) {
 
 app.get('/uh/:uh', function (req, res) {
   this.data = object[req.params.uh];
-  this.title = this.data.receiver;
+  this.title = this.data.levelOne;
   console.log("Rendering feedbacks for " + title);
   res.render('feedback',
   { title : this.title, data: this.data}

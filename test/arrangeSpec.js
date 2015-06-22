@@ -12,61 +12,53 @@ describe("Arrange", function(){
 
       expect(results).to.be.an('array');
     });
-    it("should have a receiver and feedbacks field in each element of results", function(){
+    it("should have a levelOne and data field in each element of results", function(){
       var file = "test/feedbacks.csv";
       var object = convert.toObject(file, "feedbacks");
       var results = arrange.twoLevel(object);
 
-      expect(results[0]).to.have.ownProperty("receiver");
-      expect(results[0]).to.have.ownProperty("feedbacks");
+      expect(results[0]).to.have.ownProperty("levelOne");
+      expect(results[0]).to.have.ownProperty("data");
     })
-    it("should have an object for each receiver", function(){
+    it("should have an object for each levelOne", function(){
       var file = "test/feedbacks.csv";
       var object = convert.toObject(file, "feedbacks");
       var results = arrange.twoLevel(object);
 
-      var receivers = ["Jill", "Joe"];
+      var levelOnes = ["Jill", "Joe"];
 
-      var resultReceivers = [results[0].receiver, results[1].receiver];
+      var resultLevelOnes = [results[0].levelOne, results[1].levelOne];
 
-      expect(resultReceivers).to.have.members(receivers);
+      expect(resultLevelOnes).to.have.members(levelOnes);
     })
-    it("should return receiver as string, feedbacks as Array", function(){
+    it("should return levelOne as string, data as Array", function(){
       var file = "test/feedbacks.csv";
       var object = convert.toObject(file, "feedbacks");
       var results = arrange.twoLevel(object);
 
-      expect(typeof results[0].receiver).to.eql("string");
-      expect(results[0].feedbacks).to.be.an('array');
+      expect(typeof results[0].levelOne).to.eql("string");
+      expect(results[0].data).to.be.an('array');
     })
-    it("should have a key in feedbacks for all authors", function(){
+    it("should have a key in data for all levelTwos", function(){
       var file = "test/feedbacks.csv";
       var object = convert.toObject(file, "feedbacks");
       var results = arrange.twoLevel(object);
-      var options = {
-        author: "author",
-        receiver: "receiver"
-      }
-      var authors = ["Jack", "John"];
+
+      var levelTwos = ["Jack", "John"];
       console.log(results[0]);
 
-      var resultAuthors = [results[0].feedbacks[0].author, results[0].feedbacks[1].author];
+      var resultLevelTwos = [results[0].data[0].levelTwo, results[0].data[1].levelTwo];
 
-      expect(resultAuthors).to.have.members(authors);
+      expect(resultLevelTwos).to.have.members(levelTwos);
     })
-    it("should have a key feedbacks[author] for each question", function(){
+    it("should have a key in data[levelTwo] for each question", function(){
       var file = "test/feedbacks.csv";
       var object = convert.toObject(file, "feedbacks");
       var results = arrange.twoLevel(object);
-      var options = {
-        author: "author",
-        receiver: "receiver"
-      }
-      var authors = ["Jack", "John"];
       var questions = ["q1", "q2", "q3"]
 
-      expect(results[0].feedbacks[0].questions).to.have.all.keys(questions);
-      expect(results[0].feedbacks[1].questions).to.to.have.all.keys(questions);
+      expect(results[0].data[0].questions).to.have.all.keys(questions);
+      expect(results[0].data[1].questions).to.to.have.all.keys(questions);
     })
   })
 })
