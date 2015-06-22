@@ -4,18 +4,18 @@ var arrange = require("../lib/arrange.js");
 var convert = require("../lib/convert.js");
 
 describe("Arrange", function(){
-  describe("#byAuthor", function(){
+  describe("#twoLevel", function(){
     it("should return Array", function(){
       var file = "test/feedbacks.csv";
       var object = convert.toObject(file, "feedbacks");
-      var results = arrange.byAuthor(object);
+      var results = arrange.twoLevel(object);
 
       expect(results).to.be.an('array');
     });
     it("should have a receiver and feedbacks field in each element of results", function(){
       var file = "test/feedbacks.csv";
       var object = convert.toObject(file, "feedbacks");
-      var results = arrange.byAuthor(object);
+      var results = arrange.twoLevel(object);
 
       expect(results[0]).to.have.ownProperty("receiver");
       expect(results[0]).to.have.ownProperty("feedbacks");
@@ -23,7 +23,7 @@ describe("Arrange", function(){
     it("should have an object for each receiver", function(){
       var file = "test/feedbacks.csv";
       var object = convert.toObject(file, "feedbacks");
-      var results = arrange.byAuthor(object);
+      var results = arrange.twoLevel(object);
 
       var receivers = ["Jill", "Joe"];
 
@@ -34,7 +34,7 @@ describe("Arrange", function(){
     it("should return receiver as string, feedbacks as Array", function(){
       var file = "test/feedbacks.csv";
       var object = convert.toObject(file, "feedbacks");
-      var results = arrange.byAuthor(object);
+      var results = arrange.twoLevel(object);
 
       expect(typeof results[0].receiver).to.eql("string");
       expect(results[0].feedbacks).to.be.an('array');
@@ -42,7 +42,7 @@ describe("Arrange", function(){
     it("should have a key in feedbacks for all authors", function(){
       var file = "test/feedbacks.csv";
       var object = convert.toObject(file, "feedbacks");
-      var results = arrange.byAuthor(object);
+      var results = arrange.twoLevel(object);
       var options = {
         author: "author",
         receiver: "receiver"
@@ -57,7 +57,7 @@ describe("Arrange", function(){
     it("should have a key feedbacks[author] for each question", function(){
       var file = "test/feedbacks.csv";
       var object = convert.toObject(file, "feedbacks");
-      var results = arrange.byAuthor(object);
+      var results = arrange.twoLevel(object);
       var options = {
         author: "author",
         receiver: "receiver"
